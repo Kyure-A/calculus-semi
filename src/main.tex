@@ -1,16 +1,21 @@
-\RequirePackage{plautopatch}
-\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[a4paper]{ltjsarticle}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmainjfont[BoldFont=HaranoAjiMincho-Bold]{HaranoAjiMincho-Regular}
+\setsansjfont{HaranoAjiGothic-Medium}
+\newjfontfamily\jisninety[CJKShape=JIS1990]{HaranoAjiMincho-Regular}
 
-\documentclass[a4paper, platex,dvipdfmx]{jlreq}			% for platex
-% \documentclass[uplatex,dvipdfmx]{jlreq}		% for uplatex
 \usepackage{graphicx}
 \usepackage{bxtexlogo}
 \usepackage{tcolorbox}
 \usepackage{tikz}
-\tcbuselibrary{breakable, skins, theorems}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+
+\tcbuselibrary{breakable, skins, theorems}
 
 \newtcbtheorem[number within = section]{mytcb}{}{enhanced, 
     attach boxed title to top left = {xshift=5mm,yshift=-3mm},
@@ -166,7 +171,7 @@ $}
 \end{mytcb}
 これらの関係は以下のように数直線上に表すとわかりやすい．
 
-\centerline{\includegraphics[width= 10cm]{src/GYPtkDEb.jpg}}
+\centerline{\includegraphics[width= 10cm]{./GYPtkDEb.jpg}}
 
 \subsubsection{実数の連続性}
 稠密性と連続性についてあやふやな理解をしていた．直感的に考えて $\mathbb{Q}$ にも $\mathbb{R} \setminus \mathbb{Q}$ にも数直線上で表すと隙間がある，つまり連続ではないことはわかっていたが，連続 $=$ 稠密だと思っていたのでこれらは稠密ではないと思っていた．しかし，連続性と稠密性は全く違った概念である．これらの数直線は稠密であるが，連続ではないらしい．一方，$\mathbb{R}$ は連続であり稠密である．\\
@@ -284,7 +289,7 @@ n が偶数のときは，a_n = \frac{1}{2} であるから，|\frac{1}{2} - \al
 \begin{math}
 数列\{a_n\} が極限値 \alpha にも \beta にも収束するとして，任意の正の実数 \varepsilon を考えると．\{a_n\} は \alpha に収束するので，ある自然数N'が存在して，N' \leq n である任意の自然数 n について |a_n - \alpha| < \varepsilon となる（極限の定義そのまま）
 \\
-また，\{a_n\} は \beta にも収束するので，ある自然数 N'' が存在して，N'' \leq  n となる任意の自然数 n について，|a_n - \beta| < \varepsilon となる．ここで，N = max{N', N''} とする．
+また，\{a_n\} は \beta にも収束するので，ある自然数 N'' が存在して，N'' \leq  n となる任意の自然数 n について，|a_n - \beta| < \varepsilon となる．ここで，N = \max { N', N''} とする．
 \\
 このとき，|\alpha - \beta| = |\alpha - a_N + a_N - \beta| \leq |\alpha - a_N| + |a_N - \beta| < \varepsilon + \varepsilon = 2\varepsilon である．
 \\
@@ -337,7 +342,7 @@ n が偶数のときは，a_n = \frac{1}{2} であるから，|\frac{1}{2} - \al
 \begin{math}
 任意の正の実数 \varepsilon を取る．このとき，ある自然数 N_1 が存在して，N_1 \leq n である任意の自然数 n について，|a_n - \alpha| < \varepsilon が成り立つ．また，ある自然数 N_2 が存在して，N_2 \leq n である任意の自然数 n について，|b_n - \beta| < \varepsilon が成り立つ．
 \\
-ここで，N = max{N_1, N_2} とすれば，N \leq n である任意の自然数 n について，|a_n - \alpha| < \varepsilon，|b_n - \beta| < \varepsilon の両方が成り立つ．したがって，|(a_n - \alpha) + (b_n - \beta)| \leq |a_n - \alpha| + |b_n - \beta| < \varepsilon + \varepsilon = 2\varepsilon．よって任意の正の実数 2\varepsilon に対して，N \leq n である任意の自然数 n について |(a_n + b_n) - (\alpha + \beta)| < 2\varepsilon が成り立つ．これは，数列 {a_n + b_n} が \alpha + \beta に収束することを示している．
+ここで，N = \max {N_1, N_2} とすれば，N \leq n である任意の自然数 n について，|a_n - \alpha| < \varepsilon，|b_n - \beta| < \varepsilon の両方が成り立つ．したがって，|(a_n - \alpha) + (b_n - \beta)| \leq |a_n - \alpha| + |b_n - \beta| < \varepsilon + \varepsilon = 2\varepsilon．よって任意の正の実数 2\varepsilon に対して，N \leq n である任意の自然数 n について |(a_n + b_n) - (\alpha + \beta)| < 2\varepsilon が成り立つ．これは，数列 {a_n + b_n} が \alpha + \beta に収束することを示している．
 \end{math}
 \end{proof}
 
