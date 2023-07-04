@@ -1,12 +1,6 @@
 \documentclass[a4paper]{ltjsarticle}
 \usepackage{luatexja}
 \usepackage{luatexja-fontspec}
-\setmainfont[Ligatures=TeX]{TeXGyreTermes}
-\setsansfont[Ligatures=TeX]{TeXGyreHeros}
-\setmainjfont[BoldFont=HaranoAjiMincho-Bold]{HaranoAjiMincho-Regular}
-\setsansjfont{HaranoAjiGothic-Medium}
-\newjfontfamily\jisninety[CJKShape=JIS1990]{HaranoAjiMincho-Regular}
-
 \usepackage{graphicx}
 \usepackage{bxtexlogo}
 \usepackage{tcolorbox}
@@ -15,9 +9,15 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 
+\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmainjfont[BoldFont=HaranoAjiMincho-Bold]{HaranoAjiMincho-Regular}
+\setsansjfont{HaranoAjiGothic-Medium}
+\newjfontfamily\jisninety[CJKShape=JIS1990]{HaranoAjiMincho-Regular}
+
 \tcbuselibrary{breakable, skins, theorems}
 
-\newtcbtheorem[number within = section]{mytcb}{}{enhanced, 
+\newtcbtheorem[number within = section]{tcb}{}{enhanced, 
 attach boxed title to top left = {xshift=5mm,yshift=-3mm},
 boxed title style = {colframe = blue!35!black, colback = white},
 coltitle = black,
@@ -26,7 +26,7 @@ colframe = blue!35!black,
 fonttitle = \bfseries,
 breakable = true,
 top = 4mm
-}{mytcb}
+}{tcb}
 
 \newtcbtheorem[number within = section]{axiom}{公理}{enhanced, 
 attach boxed title to top left = {xshift=5mm,yshift=-3mm},
@@ -86,7 +86,7 @@ top = 4mm
 
 \subsection{実数の連続性}
 
-\begin{mytcb}{上界と下界}{}
+\begin{tcb}{上界と下界}{}
 \begin{itemize}
 \item 上界 
 
@@ -97,13 +97,13 @@ $\forall x \in S, x \leq a$ ならば， $a$ を $S$ の上界という．
 $\forall x \in S, a \leq x$ ならば，$a$ を $S$ の下界という．
 
 \end{itemize}
-\end{mytcb}
+\end{tcb}
 
 また，$S \subset \mathbb{R}$ が上界をもつとき，S を上に有界であるといい，S が下界をもつときは下に有界であるという．また，これら両方をもつとき S は有界であるという．（上/下界を "持つ" だとだめっぽい？）
 
 ここで，$S \subset \mathbb{R}$ に対して，その上界全体の集合を U(S), 下界全体の集合を L(S) と表すこととする．
 このとき，U(S), L(S) を論理記号を用いて表すと
-\begin{mytcb}{U(S), L(S) の定義}{}
+\begin{tcb}{U(S), L(S) の定義}{}
 \centerline
 {$
 U(S) = \{a \mid \forall x \in S (x \leq a)\}
@@ -112,12 +112,12 @@ $}
 {$
 L(S) = \{a \mid \forall x \in S (a \leq x)\}
 $}
-\end{mytcb}
+\end{tcb}
 となる．つまり，S が 上界を持つ $\Leftrightarrow U(S) \neq \emptyset$  であるし，S が下界を持つ $\Leftrightarrow L(S) \neq \emptyset$ である．
 
 \pagebreak
 
-\begin{mytcb}{上限と下限}{}
+\begin{tcb}{上限と下限}{}
 \begin{itemize}
 \item 上限 (supremum)
 
@@ -128,11 +128,11 @@ $S \subset \mathbb{R}$ が上に有界である，その上界の中で最小の
 $S \subset \mathbb{R}$ が下に有界である，その下界の中で最大の $x \in \mathbb{R}$ が存在するならば，$x$ を $S$ の下限であるといい，記号 $\inf S$ で表す．つまり $L(S)$ をもつとき，$\max L(S)$ が存在するならば，それを $\inf S$ と表す．
 
 \end{itemize}
-\end{mytcb}
+\end{tcb}
 
 閉区間の集合 $[a, b]$ と開区間の集合 $(a, b)$ を考える．両者ともに区間の左端が a で，右端が b である．前者には最小値 a, 最大値 b があるが，後者には最小値も最大値も存在しない．しかし，両者はともに有界であるため，上限と下限について考えることができる．実際，$\forall x \in [a, b]$ について $ a \leq x$ であるし，$\forall x \in [a, b]$ について $x \leq b$ である．(後者に関しては，$<$ と読み替えればよい) \\ したがって，上限と下限の概念は最小値と最大値の概念よりもより広範に適用できる概念であるっぽい．
 
-\begin{mytcb}{上限と下限の性質}{}
+\begin{tcb}{上限と下限の性質}{}
 
 \begin{enumerate}
 \item 上に有界な集合 S について，$a = \sup S$ であることは次の条件がともに満たされることである．
@@ -151,19 +151,19 @@ $S \subset \mathbb{R}$ が下に有界である，その下界の中で最大の
 \end{itemize}
 \end{enumerate}
 
-\end{mytcb}
+\end{tcb}
 
 次に，$S, T \subset \mathbb{R}, S \subseteq T$ である状況を考える．このときの $\sup S$ と $\sup T$ について，$a $ が $S$ の上界ならば，$\forall x \in S$ について $x \leq a$ だし，$\forall x \in T$ について $x \leq a$ である．よって $S$ の上界はすべて $T$ の上界でもあることがわかるから，$U(S) \subseteq U(T)$が成り立つ．同様に $\inf S$ と $\inf T$ についても考えられる．\\ \\
 よって
 
-\begin{mytcb}{$S \subseteq T$ であるときの $\sup$ と $\inf$}{}
+\begin{tcb}{$S \subseteq T$ であるときの $\sup$ と $\inf$}{}
 \centerline{$
 S \subseteq T ならば，\sup T \geq \sup S
 $}
 \centerline{$
 S \subseteq T ならば，\inf S \leq \inf T
 $}
-\end{mytcb}
+\end{tcb}
 これらの関係は以下のように数直線上に表すとわかりやすい．
 
 \centerline{\includegraphics[width= 10cm]{./GYPtkDEb.jpg}}
@@ -220,7 +220,7 @@ $\forall \alpha \in \mathbb{R}$ と $\varepsilon \in \mathbb{R}_{++}$ に対し�
 
 \section{数列の収束と発散}
 
-\begin{mytcb}{極限}{}
+\begin{tcb}{極限}{}
 
 $\forall \varepsilon \in \mathbb{R}$ に対して，ある自然数 $N$ が存在して，$n \geq N$ であるすべての自然数 $n$ について，$|a_n - \alpha| < \varepsilon$ となるとき，数列 $\{a_n\}$ は $\alpha$ に収束するという．\\
 このとき，$\lim_{n \to \infty} = \alpha$ または $n \to \infty$ のとき $a_n \to \alpha$ と表す．この値 $\alpha$ を数列 $\{a_n\}$ の極限値という．$\{a_n\}$ の極限は $\alpha$ であるともいう．\\
@@ -231,26 +231,26 @@ $\forall \varepsilon \in \mathbb{R}$ に対して，ある自然数 $N$ が存�
 \\
 任意の実数 $M$ に対して，ある自然数 $N$ が存在して，$n \geq N$ となる任意の自然数 $n$ について $a_n < M$ なるとき，数列 $\{a_n\}$ は負の無限大に発散する，数列$\{a_n\}$の極限は負の無限大であるといい，$\lim_{n \to \infty} = -\infty$ または $n \to \infty$ のとき $a_n \to -\infty$ と表す．
 
-\end{mytcb}
+\end{tcb}
 
-\begin{mytcb}{$\varepsilon - N$ 論法}{}
+\begin{tcb}{$\varepsilon - N$ 論法}{}
 
-「数列の収束について，正の実数 $\varepsilon$ が与えられたとき，$N < n$ となる任意の自然数 $n$ について $|a_n - \alpha| < \varepsilon$ が成り立つような $N$ を $\varepsilon$ を用いて作ることで議論する方法」を指す．このとき，$N$ は $\varepsilon$ に依存していると考えるとわかりやすい． 
+「数列の収束について，正の実数 $\varepsilon$ が与えられたとき，$N \leq n$ となる任意の自然数 $n$ について $|a_n - \alpha| < \varepsilon$ が成り立つような $N$ を $\varepsilon$ を用いて作ることで議論する方法」を指す．このとき，$N$ は $\varepsilon$ に依存していると考えるとわかりやすい． 
 
-\end{mytcb}
+\end{tcb}
 手始めに，まずは $\lim_{n \to \infty} \frac{n}{n + 1} = 1$ となることを $\varepsilon - N $論法を用いて示す． 
 
-\begin{mytcb}{$\varepsilon - N$ 論法の例 1: 収束を示す}{}
+\begin{tcb}{$\varepsilon - N$ 論法の例 1: 収束を示す}{}
 
 取り敢えず，やりたいことは「$N < n$ である任意の自然数 $n$ について $|\frac{n}{n + 1} - 1| < \varepsilon$ が成り立つような $N$ が存在することを示す」ということだ．
 \\
 \\
 任意の正の実数 $\varepsilon$，自然数 $m$ に対して，$|\frac{m}{m + 1} - \frac{m + 1}{m + 1}| < \varepsilon \Leftrightarrow |\frac{-1}{m + 1}| < \varepsilon \Leftrightarrow  \varepsilon  > \frac{1}{m + 1}$ である．このとき，$m + 1 \stackrel{\mathrm{def}}{=} N$ とすると $N$ 以上のすべての自然数 $n$ について，$|\frac{n}{n + 1} - 1| = \frac{1}{n + 1} \leq \frac{1}{N} < \varepsilon$ である．以上より，任意の正の実数 $\varepsilon$ に応じて，$N$ 以上の任意の $n$ について $|\frac{n}{n + 1} - 1| < \varepsilon$ が成り立つような $N$ が取れることが示された．
 
-\end{mytcb}
+\end{tcb}
 
 また，$\varepsilon - N$ 論法は数列が収束しないことを証明すること，無限大に発散することを厳密に定義することにも使える．
-\begin{mytcb}{$ \varepsilon - N$ 論法の例 2: 振動を示す}{}
+\begin{tcb}{$ \varepsilon - N$ 論法の例 2: 振動を示す}{}
 
 数列 $\frac{(-1)^n}{2} = \{a_n\}$ がある実数 $\alpha$ に収束するとして，
 数列 $\{a_n\}$ が $\alpha$ に収束する条件を，特に $\varepsilon = \frac{1}{2}$ のときに適用する．このとき，ある $N$ が存在して，$N \leq n$ である任意の自然数 $n$ に対して $|a_n - \alpha| < \frac{1}{2}$ となる．
@@ -260,13 +260,13 @@ $n$ が奇数のときは，$a_n = \frac{-1}{2}$ であるから，$|\frac{-1}{2
 $n$ が偶数のときは，$a_n = \frac{1}{2}$ であるから，$|\frac{1}{2} - \alpha| = \frac{1}{2} - \alpha < \frac{1}{2}$ となる．このとき，$\alpha > 0$ である．
 これは矛盾しているため，数列 $\{a_n\}$ がいかなる実数値 $\alpha$ にも収束しない．
 
-\end{mytcb}
+\end{tcb}
 
-\begin{mytcb}{$ \varepsilon - N$ 論法の例 3: 正の無限大への発散を示す}{}
+\begin{tcb}{$ \varepsilon - N$ 論法の例 3: 正の無限大への発散を示す}{}
 
 数列 $\{a_n\} = 2n$ がある実数値$ \alpha$ に収束するとして，アルキメデスの原理より，$2n$ と任意の正の実数 $\varepsilon$ に対して，$\varepsilon m > 2n$ となるような自然数 $m$ が存在する． （途中）
 
-\end{mytcb}
+\end{tcb}
 
 \begin{theorem}{極限の一意性}{}
 
@@ -338,5 +338,29 @@ $\{a_n\}$ を実数 $\alpha$ に収束する数列とする，このとき，実
 ここで，$N = \max {N_1, N_2}$ とすれば，$N \leq n$ である任意の自然数 $n$ について，$|a_n - \alpha| < \varepsilon，|b_n - \beta| < \varepsilon$ の両方が成り立つ．したがって，$|(a_n - \alpha) + (b_n - \beta)| \leq |a_n - \alpha| + |b_n - \beta| < \varepsilon + \varepsilon = 2\varepsilon$ よって任意の正の実数 $2\varepsilon$ に対して，$N \leq n$ である任意の自然数 $n$ について $|(a_n + b_n) - (\alpha + \beta)| < 2\varepsilon$ が成り立つ．これは，数列 ${a_n + b_n}$ が $\alpha + \beta$ に収束することを示している．
 
 \end{proof}
+
+\section{単調数列とコーシー列}
+\begin{tcb}{有界かつ単調な数列}{}
+
+数列 $\{a_n\}$ について $a_n \leq a_{n+1} (\forall n \in \mathbb{N})$ となっているとき，数列 $\{a_n\}$ は単調に増加する，あるいは単調増加数列であるという．
+また，$a_n \geq a_{n+1} (\forall n \in \mathbb{N})$ となっているとき，数列 $\{a_n\}$ は単調に減少する，あるいは単調減少数列であるという．
+これらを，単調数列と呼ぶこともある．
+
+\end{tcb}
+
+\begin{proof}{有界かつ単調な数列の収束(写経)}{}
+$\{a_n\}$ を有界かつ単調な数列であるとする．集合 $S = \{a_n | n \in \mathbb{N}\}$ は上に有界なので，実数の連続性より上限 $\alpha$ が存在する．
+$\forall \varepsilon \in \mathbb{R_{++}}$ について，$\alpha - \varepsilon$ は集合 S の上界ではないので，$\alpha - \varepsilon$ < $a_N$ となる自然数 $N$ が存在する．
+数列 $\{a_n\}$ は単調増加であるとしたため，$n \geq N$ であるすべての自然数について $a_N \leq a_n$ である．したがって，$\alpha - \varepsilon$ < $a_n$ である．
+また，$\alpha$ は $a_n$ の上界なので $a_n \leq \alpha < \alpha + \varepsilon$ が成り立つ．よって，$\alpha - \varepsilon < a_n < \alpha + \varepsilon$ となる．
+これは，$|a_n - \alpha| < \varepsilon$ と同じであり，$\varepsilon - N$論法の典型的な形になっている．
+つまり，$\forall \varepsilon \in \mathbb{R_{++}}$ について，$N 以降のすべての番号 n について |a_n - \alpha| < \varepsilon$ が成り立つような番号 $N$ が取れることが示された．
+ゆえに，$\{a_n\}$ が $\alpha$ に収束することが示された．
+\end{proof}
+
+\begin{tcb}{コーシー列}{}
+$\forall \varepsilon \in \mathbb{R_{++}}$について ある自然数 $N$ が存在して，$k, l \geq N$ であるすべての自然数 $k, l$
+について，$|a_k - a_l| < \varepsilon$ となるとき，数列 $\{a_n\}$ はコーシー列であるという．
+\end{tcb}
 
 \end{document}
