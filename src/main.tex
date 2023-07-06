@@ -82,6 +82,9 @@ top = 4mm
 言い訳がましいが，俺は論理記号がエアプなのでイキって間違った記述をしている場合がある．説明と異なるような記述があれば，適宜指摘をお願いしたい．また，書けるところは論理記号で書いていたり，書けないところは普通に日本語を用いて書いていたりするので表記の不統一が散見されると思う．
 あと普通に書いてから 1 ヶ月経過した結果かなり内容を忘れている (6/25)
 
+\tableofcontents
+\clearpage
+
 \section{実数と数列}
 
 \subsection{実数の連続性}
@@ -362,5 +365,33 @@ $\forall \varepsilon \in \mathbb{R_{++}}$ について，$\alpha - \varepsilon$ 
 $\forall \varepsilon \in \mathbb{R_{++}}$について ある自然数 $N$ が存在して，$k, l \geq N$ であるすべての自然数 $k, l$
 について，$|a_k - a_l| < \varepsilon$ となるとき，数列 $\{a_n\}$ はコーシー列であるという．
 \end{tcb}
+感覚的な話をすると，項の番号が大きくなっていくとともに 2 項間の差が小さくなっていく数列がコーシー列である．
+
+\begin{theorem}{収束数列とコーシー列（写経）}{}
+数列 $\{a_n\} は収束し，\lim_{n \rightarrow \infty} a_n = \alpha$ であるとする．
+$\forall\varepsilon \in \mathbb{R_{++}}$ に対して，ある自然数 $N$ が存在し，$k, l \geq N$ である \forall k, \forall l について，
+$|a_k - \alpha| < \varepsilon, |a_l - \alpha| < \varepsilon$ である．
+三角不等式より，$|a_k - a_l| = |a_k - \alpha + \alpha - a_l| \leq |a_k - \alpha| + |a_l - \alpha| < 2 \varepsilon$
+である．$2\varepsilon$ も任意の正の実数を示すことができるため，$\{a_n\}$ のように収束する数列はコーシー列である．
+\end{theorem}
+三角不等式だけだからあんまり難しくないネ．
+
+コーシーの定理については，次章で書くが，$(数列の収束)$ $\Leftrightarrow$ $(コーシー列であること)$を示す定理である．
+\section{上極限と下極限}
+
+\begin{tcb}{上極限と下極限}{}
+数列 $\{a_n\}$ を有界な数列とする．$\forall n \in \mathbb{N}$ について，$k \geq n$ となる すべての自然数 $k$ について $a_k$ の上限を $\overline{a_n}$ と書く． 
+同様に，$k \leq n$ となるすべての自然数 $k$ について $a_k$ の下限を $\underline{a_n}$ と書く．
+
+これらの定義より，$\forall n$ について，$\underline{a_n} \leq a_n leq \overline{a_n}$ が成り立つ．
+
+$\lim_{n \to \infty} \overline{a_n}$ を元の数列 $\{a_n\} $の上極限と呼ぶ．
+$\lim_{n \to \infty} \underline{a_n}$ を元の数列 $\{a_n\} $の下極限と呼ぶ．
+
+\end{tcb}
+
+\begin{theorem}{コーシーの定理}{}
+任意のコーシー列は収束する．
+\end{theorem}
 
 \end{document}
