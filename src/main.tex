@@ -285,7 +285,7 @@ $n$ が偶数のときは，$a_n = \frac{1}{2}$ であるから，$|\frac{1}{2} 
 
 数列$\{a_n\}$ が極限値 $\alpha$ にも $\beta$ にも収束するとして，任意の正の実数 $\varepsilon$ を考えると．$\{a_n\}$ は $\alpha$ に収束するので，ある自然数$N'$が存在して，$N' \leq n$ である任意の自然数 $n$ について $|a_n - \alpha| < \varepsilon$ となる（極限の定義そのまま）
 \\
-また，$\{a_n\}$ は $\beta$ にも収束するので，ある自然数 $N''$ が存在して，$N'' \leq  n$ となる任意の自然数 $n$ について，$|a_n - \beta| < \varepsilon$ となる．ここで，$N = \max { N', N''}$ とする．
+また，$\{a_n\}$ は $\beta$ にも収束するので，ある自然数 $N''$ が存在して，$N'' \leq  n$ となる任意の自然数 $n$ について，$|a_n - \beta| < \varepsilon$ となる．ここで，$N = \max \{ N', N''\}$ とする．
 \\
 このとき，$|\alpha - \beta| = |\alpha - a_N + a_N - \beta| \leq |\alpha - a_N| + |a_N - \beta| < \varepsilon + \varepsilon = 2\varepsilon$ である．
 \\
@@ -309,6 +309,13 @@ $\{a_n\}$ を実数 $\alpha$ に収束する数列とする，このとき，$\{
 
 \end{theorem}
 
+\begin{proof}{部分列の極限の証明}
+任意の正の実数 $\varepsilon$ を取る．条件より，$\lim_{n \to \infty} a_n = \alpha$
+
+ここで，$n_k \geq N $となるような番号 $K $を取る．このとき，$K$ 以降の番号 $k$ について，$n_k \geq N$ である．このとき，$a_{n_k} = b_k$ とおくと，
+$|b_k - \alpha| < \varepsilon$ が成り立つ．すなわち，任意の正の実数 $\varepsilon$ に対して，$K$ 以降の番号 $k$ について，$|b_k - \alpha| < \varepsilon$ となるような番号 $K$ をとることができた．
+\end{proof}
+
 \begin{theorem}{大小関係と極限}{}
 
 $\{a_n\}$ を実数 $\alpha$ に収束する数列とする，このとき，実数 $a$ について $\alpha \leq a_n$ が無限個の番号 $n$ について成り立つなら，$a \leq \alpha$ である．また，実数 $b$ について $\alpha \geq b_n$ が無限個の番号 $n$ について成り立つなら，$\alpha \leq b$ である．
@@ -329,7 +336,7 @@ $\{a_n\}$ を実数 $\alpha$ に収束する数列とする，このとき，実
 
 任意の正の実数 $\varepsilon$ に対して，ある自然数 $N$ が存在して，$N \leq n$ である任意の自然数 $n$ について，$|a_n - \alpha| < \varepsilon, |b_n - \beta| < \varepsilon$ が成り立つ．
 \\
-数列 ${a_n}, {b_n}$ は収束するため有界であるから，ある正の実数 $M$ が存在して，任意の自然数 $n$ について， $|a_n| \leq M, |b_n| \leq M$ が成り立つ．このとき，$|\alpha| \leq M, |\beta| \leq M$ も成り立つ．
+数列 $\{a_n\}, \{b_n\}$ は収束するため有界であるから，ある正の実数 $M$ が存在して，任意の自然数 $n$ について， $|a_n| \leq M, |b_n| \leq M$ が成り立つ．このとき，$|\alpha| \leq M, |\beta| \leq M$ も成り立つ．
 性質 2 は性質 1 の $b_n$ を $k$ とおくと得られる．
 
 \end{proof}
