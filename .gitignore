@@ -1,3 +1,11 @@
 .vscode
+main.aux
+main.toc
 main.log
 main.synctex
+texput.log
+src/main.aux
+src/main.fdb_latexmk
+src/main.fls
+src/main.log
+src/main.toc
