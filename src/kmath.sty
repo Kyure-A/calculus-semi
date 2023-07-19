@@ -1,0 +1,86 @@
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\usepackage{graphicx}
+\usepackage{bxtexlogo}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmainjfont[BoldFont=HaranoAjiMincho-Bold]{HaranoAjiMincho-Regular}
+\setsansjfont{HaranoAjiGothic-Medium}
+\newjfontfamily\jisninety[CJKShape=JIS1990]{HaranoAjiMincho-Regular}
+
+\tcbuselibrary{breakable, skins, theorems}
+
+\newtcbtheorem[number within = section]{tcb}{}{enhanced, 
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{tcb}
+\newtcbtheorem[number within = section]{axiom}{公理}{enhanced, 
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{axiom}
+\newtcbtheorem[number within = section]{theorem}{定理}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{theorem}
+\newtcbtheorem[number within = section]{corollary}{系}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{corollary}
+\newtcbtheorem[number within = section]{proof}{証明}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{proof}
+\newtcbtheorem[number within = section]{lemma}{補題}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{lemma}
+
+\newcommand{\seq}[1]{\{#1\}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\repo}[1]{\gdef\@repo{#1}}

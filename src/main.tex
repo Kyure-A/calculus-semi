@@ -1,97 +1,17 @@
 \documentclass[a4paper]{ltjsarticle}
-\usepackage{luatexja}
-\usepackage{luatexja-fontspec}
-\usepackage{graphicx}
-\usepackage{bxtexlogo}
-\usepackage{tcolorbox}
-\usepackage{tikz}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
+\usepackage{kmath}
 
-\setmainfont[Ligatures=TeX]{TeXGyreTermes}
-\setsansfont[Ligatures=TeX]{TeXGyreHeros}
-\setmainjfont[BoldFont=HaranoAjiMincho-Bold]{HaranoAjiMincho-Regular}
-\setsansjfont{HaranoAjiGothic-Medium}
-\newjfontfamily\jisninety[CJKShape=JIS1990]{HaranoAjiMincho-Regular}
+\title{calculus-semi}
 
-\tcbuselibrary{breakable, skins, theorems}
+\author{Kyure\_A}
 
-\newtcbtheorem[number within = section]{tcb}{}{enhanced, 
-attach boxed title to top left = {xshift=5mm,yshift=-3mm},
-boxed title style = {colframe = blue!35!black, colback = white},
-coltitle = black,
-colback = white,
-colframe = blue!35!black,
-fonttitle = \bfseries,
-breakable = true,
-top = 4mm
-}{tcb}
-\newtcbtheorem[number within = section]{axiom}{公理}{enhanced, 
-attach boxed title to top left = {xshift=5mm,yshift=-3mm},
-boxed title style = {colframe = blue!35!black, colback = white},
-coltitle = black,
-colback = white,
-colframe = blue!35!black,
-fonttitle = \bfseries,
-breakable = true,
-top = 4mm
-}{axiom}
-\newtcbtheorem[number within = section]{theorem}{定理}{enhanced,
-attach boxed title to top left = {xshift=5mm,yshift=-3mm},
-boxed title style = {colframe = blue!35!black, colback = white},
-coltitle = black,
-colback = white,
-colframe = blue!35!black,
-fonttitle = \bfseries,
-breakable = true,
-top = 4mm
-}{theorem}
-\newtcbtheorem[number within = section]{corollary}{系}{enhanced,
-attach boxed title to top left = {xshift=5mm,yshift=-3mm},
-boxed title style = {colframe = blue!35!black, colback = white},
-coltitle = black,
-colback = white,
-colframe = blue!35!black,
-fonttitle = \bfseries,
-breakable = true,
-top = 4mm
-}{corollary}
-\newtcbtheorem[number within = section]{proof}{証明}{enhanced,
-attach boxed title to top left = {xshift=5mm,yshift=-3mm},
-boxed title style = {colframe = blue!35!black, colback = white},
-coltitle = black,
-colback = white,
-colframe = blue!35!black,
-fonttitle = \bfseries,
-breakable = true,
-top = 4mm
-}{proof}
-\newtcbtheorem[number within = section]{lemma}{補題}{enhanced,
-attach boxed title to top left = {xshift=5mm,yshift=-3mm},
-boxed title style = {colframe = blue!35!black, colback = white},
-coltitle = black,
-colback = white,
-colframe = blue!35!black,
-fonttitle = \bfseries,
-breakable = true,
-top = 4mm
-}{lemma}
-
-\newcommand{\seq}[1]{\{#1\}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-
-\title{微積}
-
-\author{kyre}
-\date{\today}
+\date{https://github.com/Kyure-A/calculus-semi}
 
 %--------------------------------------------------------------------------------------------------------
 
 \begin{document}
+
+\maketitle
 
 \section*{諸注意}
 言い訳がましいが，俺は論理記号がエアプなのでイキって間違った記述をしている場合がある．説明と異なるような記述があれば，適宜指摘をお願いしたい．また，書けるところは論理記号で書いていたり，書けないところは普通に日本語を用いて書いていたりするので表記の不統一が散見されると思う．
@@ -101,7 +21,6 @@ top = 4mm
 \clearpage
 
 \section{実数と数列}
-
 \subsection{実数の連続性}
 
 \begin{tcb}{上界と下界}{}
@@ -236,7 +155,7 @@ $\forall \alpha \in \mathbb{R}$ と $\varepsilon \in \mathbb{R}_{++}$ に対し�
 \end{corollary}
 これは，$\alpha$ が無理数であるときに，$\alpha$ にいくらでも近い（ここガバ）有理数 a が取れることを示している．
 
-\section{数列の収束と発散}
+\subsection{数列の収束と発散}
 
 \begin{tcb}{極限}{}
 
@@ -363,7 +282,7 @@ $\{a_n\}$ を実数 $\alpha$ に収束する数列とする，このとき，実
 
 \end{proof}
 
-\section{単調数列とコーシー列}
+\subsection{単調数列とコーシー列}
 \begin{tcb}{有界かつ単調な数列}{}
 
 数列 $\{a_n\}$ について $a_n \leq a_{n+1} (\forall n \in \mathbb{N})$ となっているとき，数列 $\{a_n\}$ は単調に増加する，あるいは単調増加数列であるという．
@@ -407,7 +326,7 @@ $|a_k - \alpha| < \varepsilon, |a_l - \alpha| < \varepsilon$ である．
 だるすぎる
 \end{proof}
 
-\section{上極限と下極限}
+\subsection{上極限と下極限}
 
 \begin{tcb}{上極限と下極限}{}
 数列 $\{a_n\}$ を有界な数列とする．$\forall n \in \mathbb{N}$ について，$k \geq n$ となる すべての自然数 $k$ について $a_k$ の上限を $\overline{a_n}$ と書く． 
@@ -443,21 +362,30 @@ $\{a_n\}$をコーシー列とし，$\alpha = \displaystyle \liminf_{n \to \inft
 \end{theorem}
 
 \subsection{小数展開}
-0 以上のどんな $\alpha \in \R$ も 10進数の小数 
+ここらへんは杉浦解析読みます．
 
-\begin{tcb}{}{}
-(*)    $b_0.b_1 b_2 b_3 \cdots b_n b_{n+1}\cdots$
-\end{tcb}
+\begin{theorem}{十進小数展開}{}
+$\forall x$ に対して，
+\begin{align}
+\centering
+a_n = [x] + \frac{x_1}{10^1} + \frac{x_2}{10^2} + \frac{x_3}{10^3} + \cdots + \frac{x_n}{10^n} \hspace{20pt} (0 \leq x_i \leq 9, x_i \in \N) 
+\end{align}
+の形の有理数列 $\seq{a_n}$ で $x$ に収束するものが存在する．
+\end{theorem}
 
-で表すことができる．ここでは $b_0$ は $0$ 以上の整数であり，$b_1, b_2, \cdots$ はすべて $0$ から $9$ の整数である．
-実数 $\alpha$ が小数展開 (*) を持つということの意味は次のとおりである．
-
-\begin{tcb}{}{}
-$\forall n$ について，小数展開 (*) を小数点以下$n$位のところまでで打ち切ることで得られる有限小数を $a_n$ とする．$a_n$ は有限小数 $b_0.b_1 b_2 b_3 \cdots b_n$ で表される有理数である．
-したがって，$a_n = \frac{b_0}{10^0} + \frac{b_1}{10^1} + \cdots + \frac{b_n}{10^n}$が成り立つ．このとき，実数 $\alpha$ が小数展開 (*) をもつとは，数列 $\seq{a_n}$ が $\alpha$ に収束することである．
-
-\end{tcb}
+\begin{proof}{証明}{}
+$x - [x] = x_0$ と置く（つまり，$x$ の小数部分を取る）．半開区間 $I_0 = [0, 1)$ を $[\frac{k}{10},\frac{k + 1}{10})$ \hspace{10pt} $(0 \leq k \leq 9)$ の形の半開区間に 10 等分する．
+このとき，$x_0 \in I_0$ は$I_0$を10 等分した区間の中のうちただ一つに含まれる．さらに，$x_0 \in [\frac{k}{10}, \frac{k + 1}{10}) = I_1 のとき，x_1 = k$ とおく．
+次に，この $I_1$ を同様に 10 等分して $x_0 \in [\frac{x_1}{10} + \frac{l}{10^2}, \frac{x_1}{10} + \frac{l + 1}{10^2}) = I_2 のとき，x_2 = l$ とおく．
+このような操作が同様に $\forall n \in N$ に対してできるので，$x_n$ は一意に定まる．$x_n$ がわかれば $a_n$ が定義できる．$b_n = a_n + \frac{1}{10^n}, I_n = [a_n, b_n), \overline{I_n} = [a_n, b_n]$ とおく．
+このとき，$x_n$ の定義から，$x_n \in I_n \subset \overline{I_n} (\forall n \in \N)$ であるから，
+$0 \leq x - a_N \leq b_n - a_n = \frac{1}{10^n}$ となる（ここ行間あるな）$\displaystyle \lim_{n \to \infty} \frac{1}{10^n} = 0$ だから，$\displaystyle \lim_{n \to \infty} a_n = x$ となる．
+\end{proof}
 
 \section{関数 (1変数)}
+\subsection{関数の極限}
+\subsection{極限の意味}
+\subsection{関数の連続性}
+\subsection{初等関数}
 
-\end{document}
+\end{document}}
