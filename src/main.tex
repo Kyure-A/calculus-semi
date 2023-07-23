@@ -315,6 +315,32 @@
     \begin{itemize}
       \item すべての自然数 $k$ について，$c_k \leq c_{k+1}, d_{k} \geq d_{k+1}$である．ゆえに，数列 $\seq{c_k}$は単調増加数列であり，数列$\seq{d_k}$は単調減少数列である．
       \item すべての自然数 $k$ について，$|d_k - c_k| = \frac{d-c}{2^k}$
+
+      これは具体例を考えるとわかりやすい．k = 1 のとき，
+      \begin{align}
+        [c_0, \frac{c_0 + d_0}{2}]:= [c_1, d_1] \\
+        \longrightarrow d_1 = \frac{c_0 + d_0}{2}, c_1 = c_0
+      \end{align}
+      とすると，
+      \begin{align}
+        |d_1 - c_1| &= |\frac{c_0 + d_0}{2} - \frac{2c_1}{2}| \\
+        &= \frac{d_1 - c_1}{2^1}
+      \end{align}
+      である．また，k = 2 のとき，
+      \begin{align}
+        [\frac{c_1 + d_1}{2}, d_1]:= [c_2, d_2] \\
+        \longrightarrow c_2 = \frac{c_1 + d_1}{2}, \frac{c_0 + d_0}{2} = d_1 = d_2
+      \end{align}
+      とすると，
+      \begin{align}
+        |d_2 - c_2| &= |\frac{c_0 + d_0}{2} - \frac{c_1 + d_1}{2}| \\
+        &= |\frac{c_0 + d_0}{2} - \frac{c_0 + \frac{c_0 + d_0}{2}}{2}| \\
+        &= |\frac{c_0 + d_0}{2} - \frac{2c_0 + c_0 + d_0}{4}| \\
+        &= |\frac{2c_0 + 2d_0}{4} - \frac{3c_0 + d_0}{4}| \\
+        &= \frac{d_0 - c_0}{2^2}
+      \end{align}
+      これらを帰納的に行うと示せると思う（めんどくさい）
+
       \item すべての自然数 $k$ について，$c_k \leq a_{n_k} \leq d_k$ (これは，$a_{n_k} \in [c_k, d_k]$より得られる)
      \end{itemize}
 
