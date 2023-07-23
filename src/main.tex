@@ -291,7 +291,7 @@
 
   \begin{theorem}{収束数列とコーシー列（写経）}{}
    数列 $\{a_n\} は収束し，\lim_{n \rightarrow \infty} a_n = \alpha$ であるとする．
-   $\forall\varepsilon \in \mathbb{R_{++}}$ に対して，ある自然数 $N$ が存在し，$k, l \geq N$ である \forall k, \forall l について，
+   $\forall\varepsilon \in \mathbb{R_{++}}$ に対して，ある自然数 $N$ が存在し，$\forall k, l \geq N$ について，
    $|a_k - \alpha| < \varepsilon, |a_l - \alpha| < \varepsilon$ である．
    三角不等式より，$|a_k - a_l| = |a_k + (-\alpha + \alpha) - a_l| \leq |a_k - \alpha| + |a_l - \alpha| < 2 \varepsilon$
    である．$2\varepsilon$ も任意の正の実数の間を動くため，$\{a_n\}$ のように収束する数列はコーシー列である．
@@ -318,8 +318,8 @@
       \item すべての自然数 $k$ について，$c_k \leq a_{n_k} \leq d_k$ (これは，$a_{n_k} \in [c_k, d_k]$より得られる)
      \end{itemize}
 
-     数列$\seq{c_k}$は単調増加数列であるから，上に有界である（例: d が上界）ので，これは収束し，極限値 $\alpha \in [c, d]$ が成り立つ．
-     同様に，数列$\seq{d_k}$は単調減少数列であるから，下に有界である（例: c が上界）ので，これは収束し，極限値 $\beta \in [c, d]$ が成り立つ．
+     数列$\seq{c_k}$は単調増加数列であり，上に有界である（例: d が上界）ので，これは収束し，極限値 $\alpha \in [c, d]$ が成り立つ．
+     同様に，数列$\seq{d_k}$は単調減少数列であり，下に有界である（例: c が下界）ので，これは収束し，極限値 $\beta \in [c, d]$ が成り立つ．
 
      また，すべての自然数 $k$ について，$|d_k - c_k| = \frac{d-c}{2^k}$ であるから，$\forall \varepsilon \in \R_{++}$ について，番号 $N$ を $|c_N - \alpha| < \frac{\varepsilon}{3}, |d_N - \beta| < \frac{\varepsilon}{3}, \frac{d - c}{2^n} < \frac{\varepsilon}{3}$ となるようにとれば，
      $|\beta - \alpha| = |\beta - d_N + d_N - c_N + c_N - \alpha| \leq |d_N - \beta| + |d_N - c_N| + |c_N - \alpha| < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon$
@@ -332,7 +332,7 @@
    数列 $\{a_n\}$ を有界な数列とする．$\forall n \in \mathbb{N}$ について，$k \geq n$ となる すべての自然数 $k$ について $a_k$ の上限を $\overline{a_n}$ と書く． 
    同様に，$k \leq n$ となるすべての自然数 $k$ について $a_k$ の下限を $\underline{a_n}$ と書く．
 
-   つまり，$\overline{a_n} = {\sup\seq{a_k | k \geq n}}$, $\underline{a_n} ={\inf\seq{a_k | k \geq n}}$ 
+   つまり，$\overline{a_n} = {\sup\seq{a_k | k \geq n}}$, $\underline{a_n} ={\inf\seq{a_k | k \leq n}}$ 
 
    これらの定義より，$\forall n$ について，$\underline{a_n} \leq a_n \leq \overline{a_n}$ が成り立つ．
 
@@ -343,7 +343,7 @@
   \end{tcb}
 
   \begin{lemma}{コーシー列は有界である}{}
-   $\{a_n\}$ をコーシー列とする．数列 $\{a_n\}$ がコーシー列である条件をとくに$\varepsilon = 1$ のときに適用すると，ある番号 $N$ が存在して，$\forall k, \forall l \geq N$ について $|a_k, a_l| < 1$ となる．
+   $\{a_n\}$ をコーシー列とする．数列 $\{a_n\}$ がコーシー列である条件をとくに$\varepsilon = 1$ のときに適用すると，ある番号 $N$ が存在して，$\forall k, \forall l \geq N$ について $|a_k - a_l| < 1$ となる．
    特に，$\forall n \geq N$ に対して，$|a_n - a_N| < 1$ である．
    三角不等式より，$|a_n| - |a_N| \leq |a_n - a_N|$であるから，$\forall n \geq$ に対して，$|a_n| < |a_N| + 1$ が成り立つ．
    ここで，$N 個の実数 |a_1|, |a_2|, \ldots, |a_{N-1}|, |a_N| + 1$ の中で最大のものを $M$ とする．
@@ -351,7 +351,7 @@
   \end{lemma}
 
   \begin{lemma}{コーシー列の上極限と下極限は一致する}{}
-   $\{a_n\}$をコーシー列とし，$\alpha = \displaystyle \liminf_{n \to \infty} a_n, \limsup_{n \to \infty} a_n$ とおく．コーシー列の定義から，任意の正の実数 $\varepsilon$ に対して，
+   $\{a_n\}$をコーシー列とし，$\alpha = \displaystyle \liminf_{n \to \infty} a_n, \beta = \limsup_{n \to \infty} a_n$ とおく．コーシー列の定義から，任意の正の実数 $\varepsilon$ に対して，
    ある自然数 $N_0$ が存在して，$n, k \geq N_0$ であるすべての自然数 $n, k$ について，$|a_n - a_k| < \varepsilon$ つまり $a_n - \varepsilon < a_k < a_n+ \varepsilon$ となる．
    ここで $n \geq N_0$ である n を任意に固定して，$k \geq n $であるすべての自然数 k を考えることで，$a_n - \varepsilon \leq \underline{a}_n \leq \overline{a}_n \leq a_n + \varepsilon$ が得られて，
    $(a_n + \varepsilon) - (a_n - \varepsilon ) = 2\varepsilon$ であるから，$\overline{a}_n - \underline{a}_n \leq 2\varepsilon$
@@ -363,13 +363,15 @@
    よって，$\alpha = \beta $である．
   \end{lemma}
 
-  \begin{lemma}{有界な数列 $\seq{a_n}$ について，その上極限と下極限が一致するとする．
-    \\ このとき，数列 $\seq{a_n}$ は収束して，\\ 
-    $\displaystyle \lim_{n \to \infty} a_n = \limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n$ が成り立つ．  }{}
-  すべての自然数 $n$ に対して，$\underline{a}_n \leq a_n \leq \overline{a}_n$ が成り立つ．
-  また，数列 $\seq{\underline{a}_n}$ は下極限 $\displaystyle \liminf_{n \to \infty} a_n$  に収束して，$\seq{\overline{a}_n}$ は上極限 $\displaystyle \limsup_{n \to \infty} a_n$ に収束する．
-  よって，$\displaystyle \liminf_{n \to \infty} a_n= \displaystyle \limsup_{n \to \infty} a_n$ なら，はさみうちの原理より数列 $\seq{a_n}$ は $\displaystyle \liminf_{n \to \infty} a_n = \displaystyle \limsup_{n \to \infty} a_n$ に収束する．
-\end{lemma}
+  \begin{lemma}{}{}
+    有界な数列 $\seq{a_n}$ について，その上極限と下極限が一致するとする．このとき，数列 $\seq{a_n}$ は収束して，$\displaystyle \lim_{n \to \infty} a_n = \limsup_{n \to \infty} a_n = \liminf_{n \to \infty} a_n$ が成り立つ．  
+  \end{lemma}
+
+  \begin{proof}{上の証明}{}
+    すべての自然数 $n$ に対して，$\underline{a}_n \leq a_n \leq \overline{a}_n$ が成り立つ．
+    また，数列 $\seq{\underline{a}_n}$ は下極限 $\displaystyle \liminf_{n \to \infty} a_n$  に収束して，$\seq{\overline{a}_n}$ は上極限 $\displaystyle \limsup_{n \to \infty} a_n$ に収束する．
+    よって，$\displaystyle \liminf_{n \to \infty} a_n= \displaystyle \limsup_{n \to \infty} a_n$ なら，はさみうちの原理より数列 $\seq{a_n}$ は $\displaystyle \liminf_{n \to \infty} a_n = \displaystyle \limsup_{n \to \infty} a_n$ に収束する．
+  \end{proof}
   
   これらの補題から，次の系も従う．
 
@@ -398,8 +400,8 @@
    このとき，$x_0 \in I_0$ は$I_0$を10 等分した区間の中のうちただ一つに含まれる．さらに，$x_0 \in [\frac{k}{10}, \frac{k + 1}{10}) = I_1 のとき，x_1 = k$ とおく．
    次に，この $I_1$ を同様に 10 等分して $x_0 \in [\frac{x_1}{10} + \frac{l}{10^2}, \frac{x_1}{10} + \frac{l + 1}{10^2}) = I_2 のとき，x_2 = l$ とおく．
    このような操作が同様に $\forall n \in N$ に対してできるので，$x_n$ は一意に定まる．$x_n$ がわかれば $a_n$ が定義できる．$b_n = a_n + \frac{1}{10^n}, I_n = [a_n, b_n), \overline{I_n} = [a_n, b_n]$ とおく．
-   このとき，$x_n$ の定義から，$x_n \in I_n \subset \overline{I_n} (\forall n \in \N)$ であるから，
-   $0 \leq x - a_N \leq b_n - a_n = \frac{1}{10^n}$ となる（ここ行間あるな）$\displaystyle \lim_{n \to \infty} \frac{1}{10^n} = 0$ だから，$\displaystyle \lim_{n \to \infty} a_n = x$ となる．
+   このとき，$x_n$ の定義から，$x \in I_n \subset \overline{I_n} (\forall n \in \N)$ であるから，
+   $0 \leq x - a_n \leq b_n - a_n = \frac{1}{10^n}$ となる（ここ行間あるな）$\displaystyle \lim_{n \to \infty} \frac{1}{10^n} = 0$ だから，$\displaystyle \lim_{n \to \infty} a_n = x$ となる．
   \end{proof}
 
  \section{関数 (1変数)}
