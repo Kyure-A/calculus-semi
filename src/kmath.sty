@@ -93,10 +93,24 @@ breakable = true,
 top = 4mm
 }{lemma}
 
+% {} をエスケープするのがだるい
 \newcommand{\seq}[1]{\{#1\}}
+
+% mathbb ってわざわざ書きたくない
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
+% repository name を書きたかった（うまいことできず）
 \newcommand{\repo}[1]{\gdef\@repo{#1}}
+
+% \lim に毎回 \displaystyle をつけるのがだるい
+\let\copiedlim=\lim
+\def\lim{\displaystyle \copiedlim}
+
+% \forall, \exists がでかすぎてアンバランス (でかく書きたい場面もあるのか？)
+\let\copiedforall=\forall
+\def\forall{^{\copiedforall}}
+\let\copiedexists=\exists
+\def\exists{^{\copiedexists}}

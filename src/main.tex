@@ -432,8 +432,73 @@
 
  \section{関数 (1変数)}
   \subsection{関数の極限}
-  \subsection{極限の意味}
+  \begin{tcb}{関数の極限}{}
+    任意の正の実数 $\varepsilon$ に対して，ある正の実数 $\delta$ が存在して，$f(x)$の定義域内の $0 < |x-a| < \delta$ であるすべての $x$ について，$|f(x) - a| < \varepsilon$ となるとき，
+    $\displaystyle \lim_{x \to a} f(x) = a$ となるという．
+  \end{tcb}
+  つまりは，$\alpha$ と $f(x)$ の誤差 $|f(x) - \alpha|$ に対して，$|x-a|$ を十分小さく設定すれば，誤差を無視できる程度に収めることができるということである．
+
+  \begin{tcb}{$\varepsilon-\delta$ 論法}{}
+    
+  \end{tcb}
+
+  \begin{tcb}{$\varepsilon - \delta$ 論法の例: 1}{}
+    $\displaystyle \lim_{x \to 1} (5x-3) = 2$ であることを証明する．
+    任意の $\varepsilon \in \R_{++}$ に対して，$\delta = \frac{1}{5}$ とすると，$0 < |x - 1| < \delta$ のとき，$|f(x) - 2| = |5x-5| = 5|x-1| < 5\delta = \varepsilon$ となる．
+    よって $\displaystyle \lim_{x \to 1} (5x-3) = 2$ が示された．
+    
+  \end{tcb}
+
+  \begin{tcb}{$\varepsilon - \delta$ 論法の例: 2}{}
+    $\displaystyle \lim_{x \to -1} (x^2 + 1) = 2$ を証明する．
+    任意の実数 $\varepsilon \in \R_{++}$ に対して，
+  \end{tcb}
+
+  \begin{theorem}{関数の極限の性質}{}
+    関数 $f(x), g(x)$ および 実数$a$ に対して，$\displaystyle \lim_{x \to a} f(x) = \alpha, \lim_{x \to a} g(x) = \beta$ とする．このとき，
+    \begin{align}
+      \displaystyle \lim_{x \to a} (k f(x) + l g(x)) = k\alpha + l\beta
+    \end{align}
+
+    \begin{align}
+      \displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta
+    \end{align}
+
+    \begin{align}
+      \displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\alpha}{\beta} (\beta \neq 0)
+    \end{align}
+
+    らが成り立つ．
+  \end{theorem}
+
+  \begin{proof}{$\displaystyle \lim_{x \to a} (k f(x) + l g(x)) = k\alpha + l\beta$ の証明}{}
+
+  \end{proof}
+
+  \begin{proof}{$\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ の証明}{}
+
+  \end{proof}
+  
+  \begin{tcb}{左極限・右極限}{}
+  
+  $x$ が $x < a$ を満たしながら近づく場合を左極限といい，$x < a$ だから，$|x - a| = a - x$ となる．ゆえに，$\forall \varepsilon \in \R_{++}$ に対して ある $\delta \in \R_{++}$ が存在して， 
+  $0 < a - x < \delta$ である $\forall x$ について $|f(x) - \alpha| < \varepsilon$ が成り立つ．このとき，$\displaystyle \lim_{x \to a-0} f(x) = \alpha$ とかく．
+
+  逆に，$x$ が $x > a$ を満たしながら近づく場合を右極限といい，$x > a$ だから $|x - a| = x - a$ となる．ゆえに，$\forall \varepsilon \in \R_{++}$ に対して ある $\delta \in \R_{++}$ が存在して， 
+  $0 < x - a < \delta$ である $\forall x$ について $|f(x) - \alpha| < \varepsilon$ が成り立つ．このとき，$\displaystyle \lim_{x \to a-0} f(x) = \alpha$ とかく．
+
+  左極限と右極限を総称して片側極限ということもある．
+  \end{tcb}
+
+  \begin{tcb}{$x \to \infty, x\to -\infty$ の場合の収束}{}
+  $\lim_{x \to \infty} f(x) = \alpha$ のときは，$\varepsilon - \delta$ 論法 で，$\forall \varepsilon \in \R_{++}$ に対して，ある十分大きな $\delta \in \R_{++}$ が存在して，
+  $x > \delta$ である $\forall x$ について，$|f(x) - \alpha| < \varepsilon$ が成り立つ．
+
+  $\lim_{x \to -\infty} f(x) = \alpha$ のときは，$\varepsilon - \delta$ 論法 で，$\forall \varepsilon \in \R_{++}$ に対して，ある十分大きな $\delta \in \R_{++}$ が存在して，
+  $x < -\delta$ である $\forall x$ について，$|f(x) - \alpha| < \varepsilon$ が成り立つ．
+  \end{tcb}
+
   \subsection{関数の連続性}
   \subsection{初等関数}
 
-\end{document}}
+\end{document}
