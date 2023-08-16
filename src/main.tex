@@ -451,33 +451,43 @@
 
   \begin{tcb}{$\varepsilon - \delta$ 論法の例: 2}{}
     $\displaystyle \lim_{x \to -1} (x^2 + 1) = 2$ を証明する．
-    任意の実数 $\varepsilon \in \R_{++}$ に対して，
+    任意の実数 $\varepsilon >0 $ に対して，ある $\delta = \min\{1, \frac{1}{4}\varepsilon\}$ とする．
+    $0 < |x - (-1)| = |x + 1| < \delta$ なら，特に $|x + 1| < 1$ であるから，$|x - 1| < 4$ であり，
+    $0 < |x + 1| < \delta$ のとき $|(x^2 + 1) - 2| = |x^2 - 1| = |x + 1| |x - 1| < \frac{1}{4}\varepsilon \times 4 = \varepsilon$
+    ゆえに $\displaystyle \lim_{x \to -1} (x^2 + 1) = 2$ である．
   \end{tcb}
 
   \begin{theorem}{関数の極限の性質}{}
     関数 $f(x), g(x)$ および 実数$a$ に対して，$\displaystyle \lim_{x \to a} f(x) = \alpha, \lim_{x \to a} g(x) = \beta$ とする．このとき，
-    \begin{align}
-      \displaystyle \lim_{x \to a} (k f(x) + l g(x)) = k\alpha + l\beta
-    \end{align}
-
-    \begin{align}
-      \displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta
-    \end{align}
-
-    \begin{align}
-      \displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\alpha}{\beta} (\beta \neq 0)
-    \end{align}
+    \begin{itemize}
+      \item $\displaystyle \lim_{x \to a} (k f(x) + l g(x)) = k\alpha + l\beta$
+      \begin{proof}{$\displaystyle \lim_{x \to a} (k f(x) + l g(x)) = k\alpha + l\beta$ の証明（写経）}{}
+        $M \in \R_{++}$ を $M > \max\{|k|, |l|\}$ になるようにとっておく．
+        任意の $\varepsilon \in \R_{++}$ をとる．このとき，$\frac{\varepsilon}{2M}$ も正の実数．
+        $\lim_{x \to a} f(x) = \alpha$ だから，正の実数 $\delta_1$ を $0 < |x - a| < \delta_1$ である任意の $x$ に対して，$|f(x) - \alpha| < \frac{\varepsilon}{2M}$ となるようにとれる．
+        同様に，$\lim_{x \to a} g(x) = \beta$ だから，正の実数 $\delta_2$ を $0 < |x - a| < \delta_2$ である任意の $x$ に対して，$|g(x) - \alpha| < \frac{\varepsilon}{2M}$ となるようにとれる．
+        ここで，$\delta= \min\{\delta_1, \delta_2\}$ とする． $|x - a| < \delta$ のとき，$|(kf(x) + lg(x)) - (k\alpha + l \beta)| 
+        = |k(f(x) - \alpha) + l(g(x) - \beta)| \leq |k||f(x) - \alpha| + |l| |g(x) - \beta| < M \times \frac{\varepsilon}{2M} + M \times \frac{\varepsilon}{2M} = \varepsilon$
+        ゆえに示された．
+      \end{proof}
+      \item $\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ 
+      \begin{proof}{$\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ の証明}{}
+        $\lim_{x \to a} f(x) = \alpha$ であるから，$\varepsilon_1 > 0$ について $0 < |x - a| < \delta_1$ ならば $|f(x) - \alpha| < \varepsilon_1$ となる $\delta_1$ が存在する．
+        同様に，$\lim_{x \to a} g(x) = \beta$ であるから，$\varepsilon_2 > 0$ について $0 < |x - a| < \delta_2$ ならば $|g(x) - \beta| < \varepsilon_2$ となる $\delta_2$ が存在する．
+        このとき，正の実数 $M = \max\{|\alpha - \varepsilon_1|, |\alpha + \varepsilon_1|\}$ ととると，$f(x) < M$ である．
+        $\delta = \min\{\delta_1, \delta_2\}$ とすると，三角不等式より $|f(x)g(x) - \alpha\beta| = |f(x)(g(x) - \beta) + \beta(f(x) - \alpha)| = |f(x)(g(x) - \beta)| + |\beta(f(x) - \alpha)| 
+        = |\alpha|\varepsilon_2 + |\beta|\varepsilon < M\varepsilon_2 + |\beta|\varepsilon_1$ である．$\varepsilon \eqdef |\alpha|\varepsilon_2 + |\beta|\varepsilon < M\varepsilon_2 + |\beta|\varepsilon_1$ 
+        改めておく（$\varepsilon_1 と \varepsilon_2$ が正の実数だから $\varepsilon$ も正）．ゆえに$\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ が示された．
+      \end{proof}
+      \item $\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\alpha}{\beta} (\beta \neq 0)$
+      \begin{proof}{$\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\alpha}{\beta}$ の証明}{}
+        これは上とほぼ同じであるため，$h(x) \eqdef \frac{1}{g(x)}$ とおいて $\lim_{x \to a} h(x) = \frac{1}{\beta} \eqdef \gamma$ であることを示せば，上の証明が適用できる．
+      \end{proof}
+      \item 関数$f(x), g(x)$ および $\alpha \in \R$ について，$\lim_{x \to a} f(x) = b, \lim_{x \to b} g(x) = \alpha$ とする．このとき，合成関数 $g(f(x))$ について $\lim_{x \to a}g(f(x)) = \alpha$ が成り立つ．
+    \end{itemize}
 
     らが成り立つ．
   \end{theorem}
-
-  \begin{proof}{$\displaystyle \lim_{x \to a} (k f(x) + l g(x)) = k\alpha + l\beta$ の証明}{}
-
-  \end{proof}
-
-  \begin{proof}{$\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ の証明}{}
-
-  \end{proof}
   
   \begin{tcb}{左極限・右極限}{}
   
@@ -498,7 +508,80 @@
   $x < -\delta$ である $\forall x$ について，$|f(x) - \alpha| < \varepsilon$ が成り立つ．
   \end{tcb}
 
+  \begin{theorem}{大小関係と極限}{}
+    開区間 $I = (a, b) (a < b)$ 上で定義された関数 $f(x)$ について，$\lim_{x \to a + 0} f(x) = \alpha (\alpha \in \R)$ とする．
+
+    \begin{itemize}
+      \item $c \in \R について，f(x) \geq c が 任意の x \in I について成り立つなら，\alpha \geq c である．$
+      \begin{proof}{証明 (写経)}{}
+        $\alpha < c$ であると仮定し，正の実数 $\varepsilon = c - \alpha$ を考える．$\lim_{x \to a + 0} f(x) = \alpha$ なので，$9 < x - a < \delta$ である任意の $x$ について，
+        $|f(x) - \alpha| < \varepsilon$ となるような，正の実数 $\delta$ がとれる．
+        しかしこのとき，$f(x) < a + \varepsilon = c$ となり，任意の $x \in I$ について $f(x) \geq c$ が成り立つことに矛盾する．よって $\alpha \geq c$ となる． 
+      \end{proof}
+      \item $d \in \R について，f(x) \leq d が 任意の x \in I について成り立つなら，\alpha \leq d である．$
+      \begin{proof}{証明}{}
+        $\alpha > d$ であると仮定し，正の実数 $\varepsilon = \alpha - d$ を考える．$\lim_{x \to a + 0} f(x) = \alpha$ なので，$0 < |x - a| < \delta$ である任意の $x$ に対して $|f(x) - \alpha| < \varepsilon$
+        が成り立つような $\delta > 0$ がとれる．しかし，このとき，$f(x) > $  となるから，$d \in \R について，f(x) \leq d が 任意の x \in I$ について成り立つことに矛盾する．
+      \end{proof}
+    \end{itemize}
+
+  \end{theorem}
+
+  \begin{theorem}{片側極限と極限の関係}{}
+    $x = a$ を含む区間で定義された関数 $f(x)$ について次が成り立つ．
+    \begin{itemize}
+     \item $\lim_{x \to a} f(x) = \alpha$が存在するとき，左極限 $\lim_{x \to a -0} f(x) = \alpha$ と右極限 $\lim_{x \to a + 0} f(x) = \alpha$ が成り立つ．
+     \item 逆に，左極限 $\lim_{x \to a -0} f(x) = \alpha$ と右極限 $\lim_{x \to a + 0} f(x) = \alpha$ ならば $\lim_{x \to a} f(x) = \alpha$ である．
+    \end{itemize}
+    つまり，両方の場合で $\lim_{x \to a} f(x) = \lim_{x \to a - 0} f(x) = \lim_{x \to a+0} f(x)$ が成り立つ．
+  \end{theorem}
+
+  \begin{theorem}{極限に関するコーシーの判定条件}{}
+    区間 $I = (a, b] (a < b)$ で定義された関数 $f(x)$ について，右極限 $\lim_{x \to a+0} f(x)$ が存在するための必要十分条件は次が成り立つことである．
+    \begin{itemize}
+      \item $\forall \varepsilon > 0$ について，実数 $\delta > 0$ が存在して，$a < x < a + \delta$, $a < y < a + \delta$ を満たす任意の $x, y$ について，$|f(x) - f(y) < \varepsilon$ が成り立つ．
+    \end{itemize}
+    同様に，左極限$\lim_{x \to a-0} f(x)$ が存在するための必要十分条件は次が成り立つことである．
+    \begin{itemize}
+      \item $\forall \varepsilon > 0$ について，実数 $\delta > 0$ が存在して，$b-\delta < x < b$, $b-\delta < y < b$ を満たす任意の $x, y$ について，$|f(x) - f(y) < \varepsilon$ が成り立つ．
+    \end{itemize}
+  \end{theorem}
+
   \subsection{関数の連続性}
+  \begin{tcb}{関数の連続性}{}
+    $x = a$ を含む区間で定義されている関数 $f(x)$ が，$x = a$ において連続であるとは，$\lim_{x \to a} f(x) = f(a)$ が成り立つことである．これを $\varepsilon - \delta$ 論法を用いて表すと，
+    「$\forall \varepsilon > 0$ に対して，$|x - a| < \delta$ である $\forall x$  について $|f(x) - f(a)| < \varepsilon$ となる $\delta > 9$ が存在する．」ということである．
+  \end{tcb}
+
+  \begin{tcb}{連続関数}{}
+    関数 $f(x)$ がその定義域内の任意の点で連続ならば，$f(x)$ を連続関数という．
+  \end{tcb}
+
+  \begin{theorem}{関数の四則演算と連続性}{}
+    関数$f(x), g(x)$が $x = a$ で連続であるとする．このとき，次の関数も $x=a$ で連続である．
+    \begin{itemize}
+      \item $kf(x) + lg(x)$ ($k, l$ は定数)
+      \item $f(x)g(x)$
+      \item $\frac{f(x)}{g(x)}$ ($g(a)$ \neq 0)
+    \end{itemize}
+  \end{theorem}
+
+  \begin{theorem}{合成関数の連続性}{}
+    $f(x)$ を $x = a$ を含む区間で定義されている関数とし，$f(a) = b$ とする．
+    また，$g(x)$ を $x = b$ を含む区間で定義されている関数とする．
+    $f(x)$ が $x = a$ で連続で，$g(x)$ が $x = b$ で連続ならば，合成関数 $g(f(x)) = (g \circ f)(x)$ は $x=a$ で連続である．
+  \end{theorem}
+
+  \begin{theorem}{中間値の定理}{}
+    閉区間 $[a, b]$ $(a < b)$ 上の連続関数 $y = f(x)$ において，$f(a) \neq f(b)$ であるとする．このとき，$f(a)$ と $f(b)$ の間の $\forall l$ に対して，$f(c) = l$ を満たす $c \in [a, b]$ が少なくとも 1 つ存在する．   
+  \end{theorem}
+  これは，関数$f(x)$ が連続なら$f(a)$ と $f(b)$ の間の任意の値 $l$ に対して，区間$[a, b]$ に属する $c$ がある，つまり $f(c) = l$ があるということである．
+
+  \begin{theorem}{最大値・最小値 原理}{}
+  閉区間 $[a, b]$ 上の連続関数 $y = f(x)$ は最大値および最小値をとる．
+  つまり $c, d \in [a, b]$ で $M = f(c)$ は $[a, b]$ における $f(x)$ の値の最大値であり，$m = f(d)$ は $[a, b]$ における $f(x)$ の値の最小値である．
+  \end{theorem}
+
   \subsection{初等関数}
 
 \end{document}
