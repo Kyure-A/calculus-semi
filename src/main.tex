@@ -433,8 +433,8 @@
  \section{関数 (1変数)}
   \subsection{関数の極限}
   \begin{tcb}{関数の極限}{}
-    任意の正の実数 $\varepsilon$ に対して，ある正の実数 $\delta$ が存在して，$f(x)$の定義域内の $0 < |x-a| < \delta$ であるすべての $x$ について，$|f(x) - a| < \varepsilon$ となるとき，
-    $\displaystyle \lim_{x \to a} f(x) = a$ となるという．
+    任意の正の実数 $\varepsilon$ に対して，ある正の実数 $\delta$ が存在して，$f(x)$の定義域内の $0 < |x-a| < \delta$ であるすべての $x$ について，$|f(x) - \alpha| < \varepsilon$ となるとき，
+    $\displaystyle \lim_{x \to a} f(x) = \alpha$ となるという．
   \end{tcb}
   つまりは，$\alpha$ と $f(x)$ の誤差 $|f(x) - \alpha|$ に対して，$|x-a|$ を十分小さく設定すれば，誤差を無視できる程度に収めることができるということである．
 
@@ -444,7 +444,7 @@
 
   \begin{tcb}{$\varepsilon - \delta$ 論法の例: 1}{}
     $\displaystyle \lim_{x \to 1} (5x-3) = 2$ であることを証明する．
-    任意の $\varepsilon \in \R_{++}$ に対して，$\delta = \frac{1}{5}$ とすると，$0 < |x - 1| < \delta$ のとき，$|f(x) - 2| = |5x-5| = 5|x-1| < 5\delta = \varepsilon$ となる．
+    任意の $\varepsilon \in \R_{++}$ に対して，$\delta = \frac{1}{5}\varepsilon$ とすると，$0 < |x - 1| < \delta$ のとき，$|f(x) - 2| = |5x-5| = 5|x-1| < 5\delta = \varepsilon$ となる．
     よって $\displaystyle \lim_{x \to 1} (5x-3) = 2$ が示された．
     
   \end{tcb}
@@ -472,11 +472,11 @@
       \end{proof}
       \item $\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ 
       \begin{proof}{$\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ の証明}{}
-        $\lim_{x \to a} f(x) = \alpha$ であるから，$\varepsilon_1 > 0$ について $0 < |x - a| < \delta_1$ ならば $|f(x) - \alpha| < \varepsilon_1$ となる $\delta_1$ が存在する．
-        同様に，$\lim_{x \to a} g(x) = \beta$ であるから，$\varepsilon_2 > 0$ について $0 < |x - a| < \delta_2$ ならば $|g(x) - \beta| < \varepsilon_2$ となる $\delta_2$ が存在する．
+        $\lim_{x \to a} f(x) = \alpha$ であるから，$\forall\varepsilon_1 > 0$ について $0 < |x - a| < \delta_1$ ならば $|f(x) - \alpha| < \varepsilon_1$ となる $\delta_1$ が存在する．
+        同様に，$\lim_{x \to a} g(x) = \beta$ であるから，$\forall\varepsilon_2 > 0$ について $0 < |x - a| < \delta_2$ ならば $|g(x) - \beta| < \varepsilon_2$ となる $\delta_2$ が存在する．
         このとき，正の実数 $M = \max\{|\alpha - \varepsilon_1|, |\alpha + \varepsilon_1|\}$ ととると，$f(x) < M$ である．
-        $\delta = \min\{\delta_1, \delta_2\}$ とすると，三角不等式より $|f(x)g(x) - \alpha\beta| = |f(x)(g(x) - \beta) + \beta(f(x) - \alpha)| = |f(x)(g(x) - \beta)| + |\beta(f(x) - \alpha)| 
-        = |\alpha|\varepsilon_2 + |\beta|\varepsilon < M\varepsilon_2 + |\beta|\varepsilon_1$ である．$\varepsilon \eqdef |\alpha|\varepsilon_2 + |\beta|\varepsilon < M\varepsilon_2 + |\beta|\varepsilon_1$ 
+        $\delta = \min\{\delta_1, \delta_2\}$ とすると，三角不等式より $|f(x)g(x) - \alpha\beta| = |f(x)(g(x) - \beta) + \beta(f(x) - \alpha)| \leq |f(x)(g(x) - \beta)| + |\beta(f(x) - \alpha)| 
+        = |\alpha|\varepsilon_2 + |\beta|\varepsilon_1 < M\varepsilon_2 + |\beta|\varepsilon_1$ である．$\varepsilon \eqdef M\varepsilon_2 + |\beta|\varepsilon_1$ 
         改めておく（$\varepsilon_1 と \varepsilon_2$ が正の実数だから $\varepsilon$ も正）．ゆえに$\displaystyle \lim_{x \to a} f(x)g(x) = \alpha\beta$ が示された．
       \end{proof}
       \item $\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\alpha}{\beta} (\beta \neq 0)$
@@ -495,7 +495,7 @@
   $0 < a - x < \delta$ である $\forall x$ について $|f(x) - \alpha| < \varepsilon$ が成り立つ．このとき，$\displaystyle \lim_{x \to a-0} f(x) = \alpha$ とかく．
 
   逆に，$x$ が $x > a$ を満たしながら近づく場合を右極限といい，$x > a$ だから $|x - a| = x - a$ となる．ゆえに，$\forall \varepsilon \in \R_{++}$ に対して ある $\delta \in \R_{++}$ が存在して， 
-  $0 < x - a < \delta$ である $\forall x$ について $|f(x) - \alpha| < \varepsilon$ が成り立つ．このとき，$\displaystyle \lim_{x \to a-0} f(x) = \alpha$ とかく．
+  $0 < x - a < \delta$ である $\forall x$ について $|f(x) - \alpha| < \varepsilon$ が成り立つ．このとき，$\displaystyle \lim_{x \to a+0} f(x) = \alpha$ とかく．
 
   左極限と右極限を総称して片側極限ということもある．
   \end{tcb}
@@ -514,7 +514,7 @@
     \begin{itemize}
       \item $c \in \R について，f(x) \geq c が 任意の x \in I について成り立つなら，\alpha \geq c である．$
       \begin{proof}{証明 (写経)}{}
-        $\alpha < c$ であると仮定し，正の実数 $\varepsilon = c - \alpha$ を考える．$\lim_{x \to a + 0} f(x) = \alpha$ なので，$9 < x - a < \delta$ である任意の $x$ について，
+        $\alpha < c$ であると仮定し，正の実数 $\varepsilon = c - \alpha$ を考える．$\lim_{x \to a + 0} f(x) = \alpha$ なので，$0 < x - a < \delta$ である任意の $x$ について，
         $|f(x) - \alpha| < \varepsilon$ となるような，正の実数 $\delta$ がとれる．
         しかしこのとき，$f(x) < a + \varepsilon = c$ となり，任意の $x \in I$ について $f(x) \geq c$ が成り立つことに矛盾する．よって $\alpha \geq c$ となる． 
       \end{proof}
@@ -539,18 +539,18 @@
   \begin{theorem}{極限に関するコーシーの判定条件}{}
     区間 $I = (a, b] (a < b)$ で定義された関数 $f(x)$ について，右極限 $\lim_{x \to a+0} f(x)$ が存在するための必要十分条件は次が成り立つことである．
     \begin{itemize}
-      \item $\forall \varepsilon > 0$ について，実数 $\delta > 0$ が存在して，$a < x < a + \delta$, $a < y < a + \delta$ を満たす任意の $x, y$ について，$|f(x) - f(y) < \varepsilon$ が成り立つ．
+      \item $\forall \varepsilon > 0$ について，実数 $\delta > 0$ が存在して，$a < x < a + \delta$, $a < y < a + \delta$ を満たす任意の $x, y$ について，$|f(x) - f(y)| < \varepsilon$ が成り立つ．
     \end{itemize}
     同様に，左極限$\lim_{x \to a-0} f(x)$ が存在するための必要十分条件は次が成り立つことである．
     \begin{itemize}
-      \item $\forall \varepsilon > 0$ について，実数 $\delta > 0$ が存在して，$b-\delta < x < b$, $b-\delta < y < b$ を満たす任意の $x, y$ について，$|f(x) - f(y) < \varepsilon$ が成り立つ．
+      \item $\forall \varepsilon > 0$ について，実数 $\delta > 0$ が存在して，$b-\delta < x < b$, $b-\delta < y < b$ を満たす任意の $x, y$ について，$|f(x) - f(y)| < \varepsilon$ が成り立つ．
     \end{itemize}
   \end{theorem}
 
   \subsection{関数の連続性}
   \begin{tcb}{関数の連続性}{}
     $x = a$ を含む区間で定義されている関数 $f(x)$ が，$x = a$ において連続であるとは，$\lim_{x \to a} f(x) = f(a)$ が成り立つことである．これを $\varepsilon - \delta$ 論法を用いて表すと，
-    「$\forall \varepsilon > 0$ に対して，$|x - a| < \delta$ である $\forall x$  について $|f(x) - f(a)| < \varepsilon$ となる $\delta > 9$ が存在する．」ということである．
+    「$\forall \varepsilon > 0$ に対して，$|x - a| < \delta$ である $\forall x$  について $|f(x) - f(a)| < \varepsilon$ となる $\delta > 0$ が存在する．」ということである．
   \end{tcb}
 
   \begin{tcb}{連続関数}{}
