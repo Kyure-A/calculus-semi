@@ -1,0 +1,97 @@
+\usepackage{graphicx}
+\usepackage{bxtexlogo}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{here}
+\usepackage{fontspec}
+\usepackage{zxjatype}
+\usepackage{xltxtra}
+
+\tcbuselibrary{breakable, skins, theorems}
+
+\newtcbtheorem[number within = section]{tcb}{}{enhanced, 
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{tcb}
+\newtcbtheorem[number within = section]{axiom}{公理}{enhanced, 
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{axiom}
+\newtcbtheorem[number within = section]{theorem}{定理}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{theorem}
+\newtcbtheorem[number within = section]{corollary}{系}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{corollary}
+\newtcbtheorem[number within = section]{proof}{証明}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{proof}
+\newtcbtheorem[number within = section]{lemma}{補題}{enhanced,
+attach boxed title to top left = {xshift=5mm,yshift=-3mm},
+boxed title style = {colframe = blue!35!black, colback = white},
+coltitle = black,
+colback = white,
+colframe = blue!35!black,
+fonttitle = \bfseries,
+breakable = true,
+top = 4mm
+}{lemma}
+
+% {} をエスケープするのがだるい
+\newcommand{\seq}[1]{\{#1\}}
+
+% mathbb ってわざわざ書きたくない
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\eqdef}{\overset{\mathrm{def}}{=\joinrel=}}
+
+% repository name を書きたかった（うまいことできず）
+\newcommand{\repo}[1]{\gdef\@repo{#1}}
+
+% \lim に毎回 \displaystyle をつけるのがだるい
+\let\copiedlim=\lim
+\def\lim{\displaystyle \copiedlim}
+
+% \forall, \exists がでかすぎてアンバランス (でかく書きたい場面もあるのか？)
+\let\copiedforall=\forall
+\def\forall{^{\copiedforall}}
+\let\copiedexists=\exists
+\def\exists{^{\copiedexists}}
